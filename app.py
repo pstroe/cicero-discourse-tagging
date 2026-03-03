@@ -1,42 +1,48 @@
 import os
 import pandas as pd
-from flask import Flask, jsonify, send_from_directory, request
+from flask import Flask, jsonify, send_from_directory
 
-# Wir definieren den Ordner für statische Dateien (HTML, JS, CSS)
-app = Flask(__name__, static_folder='.', static_url_path='')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_FILE = os.path.join(BASE_DIR, "cicero_letters.csv")
 
-CSV_FILE = 'cicero_letters.csv'
+# Vite build output liegt in ./static
+app = Flask(__name__, static_folder="static", static_url_path="")
 
 def load_corpus():
     if not os.path.exists(CSV_FILE):
-        # Falls die Datei fehlt, geben wir ein leeres Set zurück
+        print(f"CSV not found at: {CSV_FILE}")
         return []
     try:
         df = pd.read_csv(CSV_FILE)
-        return df.fillna("").to_dict(orient='records')
+        return df.fillna("").to_dict(orient="records")
     except Exception as e:
         print(f"Fehler beim Laden der CSV: {e}")
         return []
 
-@app.route('/')
-def index():
-    # Liefert die index.html aus
-    return send_from_directory('.', 'index.html')
-
-@app.route('/api/letters')
+@app.get("/api/letters")
 def get_letters():
-    try:
-        data = load_corpus()
-        return jsonify(data)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    data = load_corpus()
+    return jsonify(data)
 
-# Statische Routen für die React-Datei (falls lokal ausgeführt)
-@app.route('/index.jsx')
-def serve_jsx():
-    return send_from_directory('.', 'index.jsx')
+@app.get("/api/config")
+def get_config():
+    # damit dein Frontend nicht meckert:
+    return jsonify({
+        "gemini_api_key": os.environ.get("GEMINI_API_KEY", "")
+    })
 
-if __name__ == '__main__':
-    # Heroku nutzt die PORT-Variable, lokal nutzen wir 5000
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+# SPA-Fallback: React Router / direkte URLs funktionieren
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve_spa(path):
+    if path.startswith("api/"):
+        return ("Not Found", 404)
+
+    file_path = os.path.join(app.static_folder, path)
+    if path and os.path.exists(file_path):
+        return send_from_directory(app.static_folder, path)
+    return send_from_directory(app.static_folder, "index.html")
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
