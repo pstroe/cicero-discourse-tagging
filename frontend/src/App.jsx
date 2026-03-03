@@ -11,16 +11,14 @@ import {
 
 // --- Firebase Setup ---
 // Die Konfiguration wird normalerweise über die Umgebung injiziert
-const firebaseConfig = typeof __firebase_config !== 'undefined' 
-  ? JSON.parse(__firebase_config) 
-  : {
-      apiKey: "DEIN_API_KEY",
-      authDomain: "DEIN_PROJEKT.firebaseapp.com",
-      projectId: "DEIN_PROJEKT_ID",
-      storageBucket: "DEIN_PROJEKT.appspot.com",
-      messagingSenderId: "DEINE_ID",
-      appId: "DEINE_APP_ID"
-    };
+const firebaseConfig = {
+      apiKey: import.meta.env.VITE_API_KEY,
+      authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+      projectId: import.meta.env.VITE_PROJECT_ID,
+      storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+      messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+      appId: import.meta.env.VITE_APP_ID
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

@@ -1,0 +1,55 @@
+[debug] [2026-03-03T20:35:00.579Z] ----------------------------------------------------------------------
+[debug] [2026-03-03T20:35:00.581Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/gm9mcvzb17vv8cla08khrg29vxn3sq4r-firebase-tools-15.1.0/lib/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2026-03-03T20:35:00.582Z] CLI Version:   15.1.0
+[debug] [2026-03-03T20:35:00.582Z] Platform:      linux
+[debug] [2026-03-03T20:35:00.582Z] Node Version:  v20.19.1
+[debug] [2026-03-03T20:35:00.582Z] Time:          Tue Mar 03 2026 20:35:00 GMT+0000 (Coordinated Universal Time)
+[debug] [2026-03-03T20:35:00.583Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-03T20:35:01.964Z] Checked if tokens are valid: true, expires at: 1772573324132
+[debug] [2026-03-03T20:35:01.964Z] Checked if tokens are valid: true, expires at: 1772573324132
+[debug] [2026-03-03T20:35:01.969Z] >>> [apiv2][query] GET https://monospace-pa.googleapis.com/v1/workspaces/cicero-disc-tagging-23312632 [none]
+[debug] [2026-03-03T20:35:02.755Z] <<< [apiv2][status] GET https://monospace-pa.googleapis.com/v1/workspaces/cicero-disc-tagging-23312632 200
+[debug] [2026-03-03T20:35:02.758Z] <<< [apiv2][body] GET https://monospace-pa.googleapis.com/v1/workspaces/cicero-disc-tagging-23312632 {"workspaceId":"cicero-disc-tagging-23312632","name":"cicero-disc-tagging","workspaceRedirectUrl":"firebase-cicero-disc-tagging-1772568890245.cluster-ikslh4rdsnbqsvu5nw3v4dqjj2.cloudworkstations.dev","status":"WORKSPACE_STATUS_RUNNING","lastAccessDatetime":"2026-03-03T20:30:15.186131Z","workspaceTemplate":"WORKSPACE_TEMPLATE_BLANK_WEB","owner":"SELF","serviceAccountEmail":"msp-6589275445849858835@monospace-per-ws-sa-9.iam.gserviceaccount.com","gitRepoUrl":"https://github.com/pstroe/cicero-discourse-tagging","enableNix":true,"ownerEmail":"phillip.stroebel@gmail.com","workstationAccessToken":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Nsb3VkLmdvb2dsZS5jb20vd29ya3N0YXRpb25zIiwiYXVkIjoiZmlyZWJhc2UtY2ljZXJvLWRpc2MtdGFnZ2luZy0xNzcyNTY4ODkwMjQ1LmNsdXN0ZXItaWtzbGg0cmRzbmJxc3Z1NW53M3Y0ZHFqajIuY2xvdWR3b3Jrc3RhdGlvbnMuZGV2IiwiaWF0IjoxNzcyNTcwMTAyLCJleHAiOjE3NzI2NTY1MDJ9.PUG32vYQbxCqIB_bc-YD0uzoIF1-U1SqCqH7OiEP1rT7bIkpzIAhJTojyNQt-cxeBRZpUfIuBnKVXl7Yu8f7r0i6cLDoID-q_upZ_ckqxPwRwb-Qnqk6KrMmCg1Np4wcvctSA9zjBaLu7GvkGDKT-BWtmNse_AlxK_iXvHOIGholVYiBr-F2zvlfjXtAveu1U200BHNfw22LrTwI2W8x6z3q-FNDAs01JGAIID9OvUlH42DQMrAk0Bgoht65bRsYAD28bHJOK1VhM60C9zHk9LI_b0fOoWVad40z09iofd1-hr7yVghxAFsOK9Z1f7dakwqez4bgzjiVGqHEgXY0eQ","firebaseProjectId":"cicero-discourse-tagging"}
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/user/cicero-discourse-tagging
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-03-03T20:35:02.769Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-03-03T20:35:02.770Z] > authorizing via signed-in user (phillip.stroebel@gmail.com)
+[debug] [2026-03-03T20:35:02.773Z] Checked if tokens are valid: true, expires at: 1772573324132
+[debug] [2026-03-03T20:35:02.773Z] Checked if tokens are valid: true, expires at: 1772573324132
+[debug] [2026-03-03T20:35:02.773Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cicero-discourse-tagging [none]
+[debug] [2026-03-03T20:35:03.002Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cicero-discourse-tagging 200
+[debug] [2026-03-03T20:35:03.002Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cicero-discourse-tagging {"projectId":"cicero-discourse-tagging","projectNumber":"675910692201","displayName":"cicero-discourse-tagging","name":"projects/cicero-discourse-tagging","resources":{"hostingSite":"cicero-discourse-tagging"},"state":"ACTIVE","etag":"1_102fdc57-7bfa-44ea-916d-ab9a92a538d6"}
+[info] i  Using project cicero-discourse-tagging (cicero-discourse-tagging) . 
+[info] 
+=== Hosting Setup
+[debug] [2026-03-03T20:35:03.022Z] Checked if tokens are valid: true, expires at: 1772573324132
+[debug] [2026-03-03T20:35:03.022Z] Checked if tokens are valid: true, expires at: 1772573324132
+[debug] [2026-03-03T20:35:03.022Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cicero-discourse-tagging [none]
+[debug] [2026-03-03T20:35:03.293Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cicero-discourse-tagging 200
+[debug] [2026-03-03T20:35:03.294Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cicero-discourse-tagging {"projectId":"cicero-discourse-tagging","projectNumber":"675910692201","displayName":"cicero-discourse-tagging","name":"projects/cicero-discourse-tagging","resources":{"hostingSite":"cicero-discourse-tagging"},"state":"ACTIVE","etag":"1_102fdc57-7bfa-44ea-916d-ab9a92a538d6"}
+[debug] [2026-03-03T20:35:51.217Z] Error: EINVAL: invalid argument, rmdir '.'
+    at rmdirSync (node:fs:1215:11)
+    at _rmdirSync (node:internal/fs/rimraf:237:5)
+    at rimrafSync (node:internal/fs/rimraf:195:7)
+    at rmSync (node:fs:1264:10)
+    at Object.actuate (/nix/store/gm9mcvzb17vv8cla08khrg29vxn3sq4r-firebase-tools-15.1.0/lib/node_modules/firebase-tools/lib/init/features/hosting/index.js:138:38)
+    at init (/nix/store/gm9mcvzb17vv8cla08khrg29vxn3sq4r-firebase-tools-15.1.0/lib/node_modules/firebase-tools/lib/init/index.js:89:25)
+    at async Command.initAction [as actionFn] (/nix/store/gm9mcvzb17vv8cla08khrg29vxn3sq4r-firebase-tools-15.1.0/lib/node_modules/firebase-tools/lib/commands/init.js:225:5)
+[error] 
+[error] Error: An unexpected error has occurred.
